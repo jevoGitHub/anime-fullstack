@@ -67,7 +67,7 @@ img{
 Sign In/Up Layout
 ==================================================
 */
-a[href="/login"], a[href="/signup"], a[href="/unlink/local"] {
+a[href="/login"], a[href="/signup"] {
   margin: auto;
   margin-top: 15px;
   width: 10%;
