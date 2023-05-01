@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Demon Slayer Discussion</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="page-header text-center">
+      <h1>Episode 2</h1>
+      <a href="/profile1?episode=1">Episode 1</a><span> | </span>
+      <a href="/profile3?episode=3">Episode 3</a><span> | </span>
+      <a href="/profile4?episode=4">Episode 4</a><span> | </span>
+    </div>
+    <div class="well">
+      <% if (user.local.username) { %>
+        <h3 class="interface"><strong>Welcome</strong>: <%= user.local.username %><br></h3>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+          <% } %>
+    </div>
+    <div class="well2">
+      <% if (user.local.username) { %>
+        <h3 class="interface"><strong>Change Password</strong></h3>
+        <a href="/unlink/local" class="btn btn-default btn-sm">Change</a>
+          <% } %>
+    </div>
+    <div class="well3">
+        <h3 class="interface"><strong>Check Replies</strong></h3>
+        <button href="#" class="btn btn-default btn-sm">Check</button>
+    </div>
+    <div class="row">
+      <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/zMq2uTVAUxU" frameborder="0"
+          allowfullscreen></iframe>
+        <section class="msg-board">
+          <ul class="messages">
+            <li id="comments">Comments</li>
+            <% for(var i=0; i<messages.length; i++) {%>
+              <li class="message">
+                <span><strong>
+                    <%= messages[i].name %>
+                  </strong></span>
+                <span>
+                  <%= messages[i].msg %>
+                </span><br>
+                <ul>
+                  <% for(var j=0; j< messages[i].replies.length; j++) {%>
+                    <li><strong><%= messages[i].name %></strong> <%= messages[i].replies[j]%></li>
+                    <% } %>
+                </ul>
+                <section class="hidden">
+                  <input id="input_<%=messages[i]._id%>" type="text" name="" maxlength="200">
+                  <button class="reply-submit" id="<%=messages[i]._id%>">Submit</button>
+                </section>
+                
+                
+                <span class="reply">Reply</span>
+                <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+              </li>
+              <% } %>
+          </ul>
+
+          <% if (user.local.username) { %>
+            <form action="/messages" method="POST">
+              <input type="hidden" name="episode" value="2">
+              <input type="text" value="<%= user.local.username %>:" name="name" readonly>
+              <input type="text" placeholder="message" name="msg" maxlength="200">
+              <button type="submit">Submit</button>
+            </form>
+      </div>
+      <% } %>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

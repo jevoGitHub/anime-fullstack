@@ -1,0 +1,238 @@
+.hidden {
+  display: none;
+}
+/*
+==================================================
+Global Stylings
+==================================================
+*/
+html {
+  text-align: center;
+}
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  padding-top: 0;
+  background-image: url("/img/bg.jpg")
+}
+/*
+==================================================
+Layout
+==================================================
+*/
+
+h1 {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+h2 {
+  margin-top: 50px;
+}
+h3 {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+img{
+  margin-top: 20px;
+  margin-bottom: 25px;
+  height: 400px;
+}
+.well, .well2, .well3 {
+  position: fixed;
+  right: 0;
+  top: 20%;
+  height: 125px;
+  border: none;
+  z-index: 1;
+}
+.well2 {
+  width: 270px;
+  top: 45%;
+}
+.well3 {
+  top: 70%;
+  width: 270px;
+}
+.interface {
+  margin-bottom: 0;
+}
+.row {
+  margin-right: 300px;
+}
+.well3 > button {
+  color:rgb(186, 65, 99);
+}
+/*
+==================================================
+Sign In/Up Layout
+==================================================
+*/
+a[href="/login"], a[href="/signup"], a[href="/unlink/local"] {
+  margin: auto;
+  margin-top: 15px;
+  width: 10%;
+  display: block;
+}
+
+a[href="/logout"], a[href="/unlink/local"], button {
+  margin-top: 20px;
+}
+
+.jumbotron {
+  background-image: url("/public/img/bg.jpg")
+}
+/*
+==================================================
+Profile Page Structure
+==================================================
+*/
+
+li {
+  list-style-type: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 1.5rem;
+}
+iframe {
+  margin: auto;
+  display: block;
+  margin-top: 60px;
+}
+/*
+==================================================
+Stylings
+==================================================
+*/
+button {
+  color:rgb(186, 65, 99);
+  font-size: 1rem;
+}
+.page-header {
+  margin-top: 10px;
+  background: linear-gradient(to right, rgba(220, 170, 8, .01), rgb(236, 4, 4), rgb(222, 110, 5), rgb(220, 170, 8), rgb(220, 170, 8, .01));
+}
+h1 {
+  font-family: "bungee shade";
+    letter-spacing: 10px;
+    padding-top: 5px;
+}
+.reply {
+  color: rgb(208, 22, 22);
+  font-size: 1.1rem;
+  margin-left: 10px;
+}
+.reply:hover {
+  color:rgb(20, 99, 81);
+  cursor: pointer;
+}
+input {
+  height: 20px;
+}
+input[readonly] {
+  display: none;
+}
+#comments {
+  text-decoration: underline;
+}
+iframe {
+  width: 100%;
+  border: 8px groove rgb(6, 6, 6);
+}
+.well, .well2, .well3 {
+  color: white;
+  border: 8px groove rgb(6, 6, 6);
+  background: linear-gradient(rgb(0, 0, 0), rgb(44, 178, 147),  rgb(0, 0, 0));
+  padding-bottom: 100px;
+}
+.well2, .well3 {
+  padding: 19px 19px 100px;
+}
+.well2 {
+  background: linear-gradient(rgb(0, 0, 0), rgb(237, 172, 33),  rgb(0, 0, 0));
+}
+.well3 {
+  background: linear-gradient(rgb(0, 0, 0), rgb(30,109,162),  rgb(0, 0, 0));
+}
+a[href*="?episode"], h1 {
+  color: rgb(238, 233, 233);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+a[href*="?episode"]:hover {
+  color:rgb(186, 65, 99);
+  text-decoration: none;
+}
+
+a[href="/logout"], a[href="/unlink/local"] {
+  color:rgb(186, 65, 99);
+}
+.jumbotron {
+  height: 800px;
+  margin-top: 10px;
+  background-color: rgba(186, 65, 99, .9)
+}
+.jumbotron > h1 {
+  color: rgb(239,197,94);
+}
+#login, #signup {
+  margin-top: 15px;
+  background-color: white;
+  padding: 200px 0;
+}
+/*
+==================================================
+Imported Stylings
+==================================================
+*/
+.msg-board {
+  --b: 5px;  /* border thickness */
+  --s: 30px; /* size of the dashes */
+  --c1: rgb(44, 178, 147);
+  --c2: #080808;
+  background-color: white;
+  width: 65%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 200px;
+  position: relative;
+  padding: 20px;
+  min-width: 200px;;
+}
+.msg-board::before {
+  content:"";
+  position: absolute;
+  inset: 0;
+  padding: var(--b);
+  background: 
+    repeating-conic-gradient(var(--c1) 0 25%,var(--c2) 0 50%) 
+    0 0/var(--s) var(--s) round;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+/*
+==================================================
+Media Queries
+==================================================
+*/
+@media (max-width: 992px) {
+  .well {
+    position: fixed;
+    top: 745px;
+    left: 0;
+    right: 0;
+    height: 125px;
+  }
+  .well2 {
+    display: none;
+  }
+  .well3 {
+    display: none;
+  }
+  .row {
+    margin-right: 0;
+  }
+}
