@@ -13,9 +13,9 @@
   <div class="container">
 
     <div class="page-header text-center">
-      <h1>Episode 3</h1>
-      <a href="/profile1?episode=1">Episode 1</a><span> | </span>
+      <h1>Episode 1</h1>
       <a href="/profile2?episode=2">Episode 2</a><span> | </span>
+      <a href="/profile3?episode=3">Episode 3</a><span> | </span>
       <a href="/profile4?episode=4">Episode 4</a><span> | </span>
     </div>
     <div class="well">
@@ -32,11 +32,11 @@
     </div>
     <div class="well3">
         <h3 class="interface"><strong>Check Replies</strong></h3>
-        <button href="#" class="btn btn-default btn-sm">Check</button>
+        <button class="btn btn-default btn-sm">Check</button>
     </div>
     <div class="row">
       <div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/GyqQqiF4pbw" frameborder="0"
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/kXrtl_Dpf1g" frameborder="0"
           allowfullscreen></iframe>
         <section class="msg-board">
           <ul class="messages">
@@ -44,31 +44,32 @@
             <% for(var i=0; i<messages.length; i++) {%>
               <li class="message">
                 <span><strong>
-                    <%= messages[i].name %>
-                  </strong></span>
+                  <%= messages[i].name %>
+                </strong></span>
                 <span>
                   <%= messages[i].msg %>
+                  <span class="trash">delete</span>
                 </span><br>
                 <ul>
                   <% for(var j=0; j< messages[i].replies.length; j++) {%>
+                    
                     <li><strong><%= messages[i].name %></strong> <%= messages[i].replies[j]%></li>
                     <% } %>
                 </ul>
-                <section class="hidden">
+                <section class="reply-section hidden">
                   <input id="input_<%=messages[i]._id%>" type="text" name="" maxlength="200">
                   <button class="reply-submit" id="<%=messages[i]._id%>">Submit</button>
                 </section>
                 
                 
                 <span class="reply">Reply</span>
-                <span><i class="fa fa-trash" aria-hidden="true"></i></span>
               </li>
               <% } %>
           </ul>
 
           <% if (user.local.username) { %>
             <form action="/messages" method="POST">
-              <input type="hidden" name="episode" value="3">
+              <input type="hidden" name="episode" value="1">
               <input type="text" value="<%= user.local.username %>:" name="name" readonly>
               <input type="text" placeholder="message" name="msg" maxlength="200">
               <button type="submit">Submit</button>

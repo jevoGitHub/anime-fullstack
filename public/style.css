@@ -1,6 +1,7 @@
 .hidden {
   display: none;
 }
+.fa-trash:before{content:'\f00d'}
 /*
 ==================================================
 Global Stylings
@@ -117,12 +118,12 @@ h1 {
     letter-spacing: 10px;
     padding-top: 5px;
 }
-.reply {
+.reply, .trash {
   color: rgb(208, 22, 22);
   font-size: 1.1rem;
   margin-left: 10px;
 }
-.reply:hover {
+.reply:hover, .trash:hover {
   color:rgb(20, 99, 81);
   cursor: pointer;
 }
