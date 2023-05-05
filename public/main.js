@@ -2,8 +2,14 @@ const replybtn = document.querySelectorAll(".reply-submit")
 const reply = document.querySelectorAll(".reply").forEach(elem => elem.addEventListener("click", replyOption))
 var trash = document.querySelectorAll(".trash")
 
-function replyOption() {
-  document.querySelector(".reply-section").classList.toggle("hidden")
+
+function replyOption(event) {
+  console.log(event.target.id)
+  const a = event.target.id.split("_")
+  const replyId = a[1]
+  const replySectionId = `replysection_${replyId}`
+  console.log(replySectionId)
+  document.getElementById(replySectionId).classList.toggle("hidden")
 }
 
 for(let i = 0; i < replybtn.length; i++) {
@@ -27,18 +33,17 @@ for(let i = 0; i < replybtn.length; i++) {
 
  Array.from(trash).forEach(function(element) {
   element.addEventListener('click', function(){
-    const name = this.parentNode.parentNode.childNodes[1].innerText
-    const msg = this.parentNode.childNodes[0]
-      console.log(name)
-      console.log(msg)
-    fetch('messages', {
+    const urlParams = new URLSearchParams(window.location.search);
+    console.log(urlParams.get('episode'));
+    console.log(this.dataset.replyid)
+    fetch('/messages', {
         method: 'delete',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          'name': name,
-          'msg': msg
+          'msgId': this.dataset.replyid,
+          'episode': urlParams.get('episode')
         })
       }).then(function (response) {
         window.location.reload()

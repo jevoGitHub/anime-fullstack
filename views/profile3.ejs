@@ -48,7 +48,7 @@
                 </strong></span>
                 <span>
                   <%= messages[i].msg %>
-                  <span class="trash">delete</span>
+                  <span data-replyid="<%=messages[i]._id%>" class="trash">delete</span>
                 </span><br>
                 <ul>
                   <% for(var j=0; j< messages[i].replies.length; j++) {%>
@@ -56,13 +56,13 @@
                     <li><strong><%= messages[i].name %></strong> <%= messages[i].replies[j]%></li>
                     <% } %>
                 </ul>
-                <section class="reply-section hidden">
+                <section id="replysection_<%=messages[i]._id%>" class="reply-section hidden">
                   <input id="input_<%=messages[i]._id%>" type="text" name="" maxlength="200">
                   <button class="reply-submit" id="<%=messages[i]._id%>">Submit</button>
                 </section>
                 
                 
-                <span class="reply">Reply</span>
+                <span id="replyspan_<%=messages[i]._id%>" class="reply">Reply</span>
               </li>
               <% } %>
           </ul>
