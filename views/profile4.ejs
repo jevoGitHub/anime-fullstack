@@ -53,7 +53,7 @@
                 <ul>
                   <% for(var j=0; j< messages[i].replies.length; j++) {%>
                     
-                    <li><strong><%= messages[i].name %></strong> <%= messages[i].replies[j]%></li>
+                    <li><strong><%= user.local.username %></strong> <%= messages[i].replies[j]%></li>
                     <% } %>
                 </ul>
                 <section id="replysection_<%=messages[i]._id%>" class="reply-section hidden">
